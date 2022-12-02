@@ -1,0 +1,22 @@
+# ignore 3rd party modules
+node_modules
+
+# ignore logs
+logs
+
+# ignore build
+dist
+
+# ignore vs code project config files
+.vs
+
+# Environment varibles
+*.env
+
+# ignore test converage
+coverage
+
+.idea
+
+# ignore key
+*.pem
