@@ -1,4 +1,4 @@
-import { NoEntryError } from 'src/core/ApiError';
+import { NoEntryError } from '../../core/ApiError';
 import ArchelonConfig, { ArchelonConfigOutput } from '../model/ArchelonConfig';
 
 export default class ArchelonConfigRepo {

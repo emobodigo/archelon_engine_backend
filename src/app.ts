@@ -28,6 +28,8 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   } else {
     if (environtment === 'development') {
       Logger.error(err);
+      console.log(err);
+
       return res.status(500).send(err.message);
     }
     ApiError.handle(new InternalError(), res);

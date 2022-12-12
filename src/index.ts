@@ -1,11 +1,12 @@
 import app from './app';
 import { port } from './config';
 import Logger from './core/Logger';
-import { dbInit } from './database';
+import { dbInit } from './database/index';
 
-dbInit();
-app
-  .listen(port, () => {
-    Logger.info(`Server running on port: ${port}`);
-  })
-  .on('error', (e) => Logger.error(e));
+dbInit().then(() => {
+  app
+    .listen(port, () => {
+      Logger.info(`Server running on port: ${port}`);
+    })
+    .on('error', (e) => Logger.error(e));
+});

@@ -1,7 +1,8 @@
 import express from 'express';
+import apikey from '../../auth/apikey';
 
 const router = express.Router();
 
-router.use('/', () => console.log('router called'));
+router.use('/', apikey);
 
 export default router;

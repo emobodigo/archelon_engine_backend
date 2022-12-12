@@ -38,7 +38,11 @@ export default createLogger({
   transports: [
     new transports.Console({
       level: logLevel,
-      format: format.combine(format.errors({ stack: true }), format.prettyPrint()),
+      format: format.combine(
+        format.errors({ stack: true }),
+        format.prettyPrint(),
+        format.colorize({ all: true }),
+      ),
     }),
   ],
   exceptionHandlers: [new DailyRotateFile(options.file)],

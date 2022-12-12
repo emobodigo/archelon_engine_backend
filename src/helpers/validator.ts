@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
-import { BadRequestError } from 'src/core/ApiError';
-import Logger from 'src/core/Logger';
+import { BadRequestError } from '../core/ApiError';
+import Logger from '../core/Logger';
 
 export enum ValidationSource {
   BODY = 'body',
