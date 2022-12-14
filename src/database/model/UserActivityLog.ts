@@ -6,8 +6,8 @@ import UserAction from './UserAction';
 interface UserActivityLogAttributes {
   id: number;
   log_date: Date;
-  user_id?: number;
-  action_id?: number;
+  user_id: number;
+  action_id: number;
   description?: string;
   target_link?: string;
   target_value?: string;
@@ -24,6 +24,8 @@ class UserActivityLog
 {
   id!: number;
   log_date!: Date;
+  user_id!: number;
+  action_id!: number;
   description?: string | undefined;
   target_link?: string | undefined;
   target_value?: string | undefined;
@@ -42,6 +44,14 @@ UserActivityLog.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    user_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
+    action_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,

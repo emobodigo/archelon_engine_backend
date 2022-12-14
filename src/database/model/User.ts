@@ -10,9 +10,9 @@ interface UserAttributes {
   email: string;
   phone?: string;
   last_active?: Date;
-  role_id?: number;
+  role_id: number;
   password: string;
-  status_id?: number;
+  status_id: number;
   photo_profile_path?: string;
   is_admin: boolean;
   createdAt?: Date;
@@ -29,7 +29,9 @@ class User extends Model<UserAttributes, UserInput> implements UserAttributes {
   email!: string;
   phone?: string | undefined;
   last_active?: Date | undefined;
+  role_id!: number;
   password!: string;
+  status_id!: number;
   photo_profile_path?: string | undefined;
   is_admin!: boolean;
   readonly createdAt: Date | undefined;
@@ -66,8 +68,16 @@ User.init(
       allowNull: true,
       defaultValue: DataTypes.NOW,
     },
+    role_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
     password: {
       type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    status_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     },
     photo_profile_path: {
@@ -88,5 +98,8 @@ User.init(
 
 UserRole.hasMany(User, { foreignKey: 'role_id' });
 UserStatus.hasMany(User, { foreignKey: 'status_id' });
+
+User.belongsTo(UserRole, { foreignKey: 'role_id' });
+User.belongsTo(UserStatus, { foreignKey: 'status_id' });
 
 export default User;

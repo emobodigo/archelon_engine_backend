@@ -1,6 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../connection';
-import User from './User';
 
 interface UserStatusAttributes {
   id: number;

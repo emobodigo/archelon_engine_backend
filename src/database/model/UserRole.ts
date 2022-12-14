@@ -44,6 +44,4 @@ UserRole.init(
   },
 );
 
-UserRole.belongsTo(User);
-
 export default UserRole;

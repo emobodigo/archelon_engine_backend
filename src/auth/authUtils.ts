@@ -1,6 +1,8 @@
 import { JwtPayload } from 'jsonwebtoken';
+import User from '../database/model/User';
 import { tokenInfo } from '../config';
 import { AuthFailureError } from '../core/ApiError';
+import { Tokens } from '../types/app-request';
 
 export const getAccessToken = (authorization?: string) => {
   if (!authorization) {
@@ -25,3 +27,9 @@ export const validateTokenData = (payload: JwtPayload): boolean => {
   }
   return true;
 };
+
+export const createTokens = async (
+  user: User,
+  accessTokenKey: string,
+  refreshTokenKey: string,
+): Promise<Tokens> => {};
